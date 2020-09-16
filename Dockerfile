@@ -79,12 +79,13 @@ RUN echo "deb http://ppa.osso.nl/${osdistro} ${oscodename} osso" >/etc/apt/sourc
 # RUN printf "%s\n" "Package: asterisk asterisk-*" "Pin: version 1:11.*" "Pin-Priority: 600" \
 #     >/etc/apt/preferences.d/asterisk.pref
 RUN set -x && \
-    cd .. && for version in 11 13 16; do \
+    cd .. && for version in 11 13 16 18; do \
     curl --fail -O https://junk.devs.nu/a/asterisk/asterisk-$version-include.tar.bz2 && \
     tar jxf asterisk-$version-include.tar.bz2; done && \
     test $(md5sum asterisk-11-include.tar.bz2 | awk '{print $1}') = 2d0e18839d469f0929bc45738faa1b77 && \
     test $(md5sum asterisk-13-include.tar.bz2 | awk '{print $1}') = cad97c28885add2c0b3fe7b7c713f2aa && \
     test $(md5sum asterisk-16-include.tar.bz2 | awk '{print $1}') = f2135dd7204514f6899374618aa7873f && \
+    test $(md5sum asterisk-18-include.tar.bz2 | awk '{print $1}') = f2135dd7204514f6899374618aa7873f && \
     set +x
 
 # Apt-get prerequisites according to control file.

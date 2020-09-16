@@ -1,4 +1,4 @@
-asterisk-g72x (1.4.3-0osso1+deb9) stretch; urgency=medium
+asterisk-g72x (1.4.3-0osso1+deb10) buster; urgency=medium
 
   * Update to upstream 1.4.3 (which has a source package now).
   * Improve docker build, allowing builds for multiple OS'es; using:
