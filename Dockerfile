@@ -66,7 +66,7 @@ COPY ./README.rst .cache/${upname}_${upversion}.orig.tar.[bg]* /build/
 RUN (test -f /build/${upname}_${upversion}.orig.tar.bz2 || \
      curl -o /build/${upname}_${upversion}.orig.tar.bz2 \
        http://asterisk.hosting.lv/src/${upname}-${upversion}.tar.bz2) && \
-    test $(md5sum /build/${upname}_${upversion}.orig.tar.bz2 | awk '{print $1}') = e99e153e88fe45cde0a7b04e22f1a414
+    test $(md5sum /build/${upname}_${upversion}.orig.tar.bz2 | awk '{print $1}') = f8d8c0f212f58547e4115327cc0d2dca
 RUN cd /build && tar jxf "${upname}_${upversion}.orig.tar.bz2" && \
     mv debian "${upname}-${upversion}/"
 COPY asterisk-g72x-g729-ast11.install asterisk-g72x-g729-ast13.install \
@@ -78,11 +78,17 @@ WORKDIR /build/${upname}-${upversion}
 # We'll use include-tars so we can build for multiple asterisk versions.
 # RUN printf "%s\n" "Package: asterisk asterisk-*" "Pin: version 1:11.*" "Pin-Priority: 600" \
 #     >/etc/apt/preferences.d/asterisk.pref
-# TODO:   22 no available at the URL below
+# Older files are provided by Walter Doekes from OSSO
+# Newer versions are produced by asterdebvg.
 RUN set -x && \
-    cd .. && for version in 18 16 13 11; do \
+    cd .. && \
+    for version in 18 16 13 11; do \
     curl --fail -O https://junk.devs.nu/a/asterisk/asterisk-$version-include.tar.bz2 && \
     tar jxf asterisk-$version-include.tar.bz2; done && \
+    for version in 22; do \
+    curl --fail -O https://hafcom.nl/asterisk-$version-include.tar.bz2 && \
+    tar jxf asterisk-$version-include.tar.bz2; done && \
+    test $(md5sum asterisk-22-include.tar.bz2 | awk '{print $1}') = b6b8c25565eb7c2bfd038a8837ed82bc && \
     test $(md5sum asterisk-18-include.tar.bz2 | awk '{print $1}') = bddb6ba2a27e80470cccacc67a725ffb && \
     test $(md5sum asterisk-16-include.tar.bz2 | awk '{print $1}') = f2135dd7204514f6899374618aa7873f && \
     test $(md5sum asterisk-13-include.tar.bz2 | awk '{print $1}') = cad97c28885add2c0b3fe7b7c713f2aa && \
