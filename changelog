@@ -1,3 +1,28 @@
+asterisk-g72x (1.4.4-0osso3+REL) stable; urgency=medium
+
+  * Update to 1.4.4 upstream
+  * Patch in actual asteriks 22 includes
+
+ -- Jasper Hafkenscheid <jasper.hafkenscheid@voys.nl>  Tue, 14 Jan 2025 15:25:49 +0100
+
+asterisk-g72x (1.4.3-0osso3+REL) stable; urgency=medium
+
+  * Include asterisk 22
+
+ -- Dennis Kraus <kraus@posteo.de>  Fri, 23 Dec 2024 10:59:27 +0200
+
+asterisk-g72x (1.4.3-0osso3+REL) stable; urgency=medium
+
+  * Fix build for bullseye.
+
+ -- Walter Doekes <wjdoekes+asterisk-g72x@osso.nl>  Fri, 24 Jun 2022 16:42:53 +0200
+
+asterisk-g72x (1.4.3-0osso2+deb9) stretch; urgency=medium
+
+  * New build, this time with asterisk-18 packages as well.
+
+ -- Walter Doekes <wjdoekes+asterisk-g72x@osso.nl>  Tue, 16 Feb 2021 11:01:50 +0100
+
 asterisk-g72x (1.4.3-0osso1+deb10) buster; urgency=medium
 
   * Update to upstream 1.4.3 (which has a source package now).
