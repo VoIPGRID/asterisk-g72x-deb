@@ -16,6 +16,7 @@ echo ".. continuing"
 osdistro=${oscodename%/*}   # debian (or ubuntu)
 oscodename=${oscodename#*/} # stretch (or bionic)
 case $osdistro/$oscodename in
+debian/trixie)  osdistshort=deb; oscodenum=13;;
 debian/bookworm)osdistshort=deb; oscodenum=12;;
 debian/bullseye)osdistshort=deb; oscodenum=11;;
 debian/buster)  osdistshort=deb; oscodenum=10;;
@@ -26,7 +27,6 @@ ubuntu/jammy)   osdistshort=ubu; oscodenum=22.04;;
 ubuntu/focal)   osdistshort=ubu; oscodenum=20.04;;
 ubuntu/bionic)  osdistshort=ubu; oscodenum=18.04;;
 ubuntu/xenial)  osdistshort=ubu; oscodenum=16.04;;
-ubuntu/trusty)  osdistshort=ubu; oscodenum=14.04;;
 *) echo "ERROR: undefined OS: $osdistro/$oscodename" >&2 && exit 1
 esac
 _shortver=$osdistshort$oscodenum
