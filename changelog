@@ -1,7 +1,13 @@
+asterisk-g72x (1.4.5-0vg1+REL) stable; urgency=medium
+
+  * Update to 1.4.5 upstream
+
+ -- Jasper Hafkenscheid <jasper.hafkenscheid@voys.nl>  Mon, 09 Mar 2026 13:08:38 +0100
+
 asterisk-g72x (1.4.4-0osso3+REL) stable; urgency=medium
 
   * Update to 1.4.4 upstream
-  * Patch in actual asteriks 22 includes
+  * Patch in actual asterisk 22 includes
 
  -- Jasper Hafkenscheid <jasper.hafkenscheid@voys.nl>  Tue, 14 Jan 2025 15:25:49 +0100
 
